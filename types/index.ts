@@ -9,9 +9,9 @@ export interface SearchTeamProps {
     setTeam: (team: string) => void;
 }
 
-export interface CustomFilterProps {
-    title: string;
-    options: OptionProps[];
+export interface SeasonFilterProps {
+    season: string,
+    setSeason: (season: string) => void;
 }
 
 export interface OptionProps {
