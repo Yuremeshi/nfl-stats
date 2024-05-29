@@ -4,9 +4,11 @@ import { useState, Fragment } from "react";
 import { SearchTeamProps } from "@/types";
 import { teams } from "@/constants";
 import { Combobox, ComboboxInput, ComboboxOption, ComboboxOptions, Transition } from "@headlessui/react";
+import { timeStamp } from "console";
 
 const SearchTeams = ({ team, setTeam }: SearchTeamProps) => {
     const [query, setQuery] = useState("");
+    const [selected, setSelected] = useState("");
 
     const filteredTeams = query === "" ? teams : teams.filter((item) => (
         item.title.toLowerCase().includes(query.toLowerCase())
@@ -14,11 +16,11 @@ const SearchTeams = ({ team, setTeam }: SearchTeamProps) => {
 
     return (
         <div className="flex-1 max-sm:w-full flex justify-start items-center">
-            <Combobox value={team} onChange={setTeam} immediate={true}>
+            <Combobox value={team.value} onChange={(team) => setTeam(team)} immediate={true}>
                 <div className="relative w-full">
                     <ComboboxInput
                         placeholder="NFL Team"
-                        displayValue={(manufacturer: string) => manufacturer}
+                        displayValue={(team: { title: string, value: string }) => team?.title || ""}
                         onChange={(e) => setQuery(e.target.value)}
                         className="text-black w-full p-1 rounded-sm"
                     />
@@ -39,7 +41,7 @@ const SearchTeams = ({ team, setTeam }: SearchTeamProps) => {
                                     <ComboboxOption
                                         key={item.value}
                                         className={({ focus }) => `relative w-full rounded-sm py-[2px] px-1 cursor-pointer ${focus ? "bg-gray-600 text-white" : "bg-gray-700 text-gray-300"}`}
-                                        value={item.title}
+                                        value={item}
                                     >
                                         {({ selected, focus }) => (
                                             <div className={`${focus ? "group flex gap-2" : ""}`}>

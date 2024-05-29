@@ -13,7 +13,10 @@ const SeasonFilter = ({ season, setSeason }: SeasonFilterProps) => {
     <div className="w-fit">
       <Listbox
         value={selected}
-        onChange={setSelected}
+        onChange={(e) => {
+          setSelected(e);
+          setSeason(e.value);
+        }}
       >
         <div className="relative w-fit">
           <ListboxButton className="relative w-full flex justify-between items-center cursor-default p-1 rounded-sm bg-white text-left shadow-md border; text-black">

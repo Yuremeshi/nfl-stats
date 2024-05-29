@@ -5,8 +5,14 @@ export interface FootballFilterProps {
 }
 
 export interface SearchTeamProps {
-    team: string,
-    setTeam: (team: string) => void;
+    team: {
+        value: string,
+        title: string,
+    },
+    setTeam: (team: {
+        value: string, 
+        title: string,
+    }) => void;
 }
 
 export interface SeasonFilterProps {
@@ -17,4 +23,8 @@ export interface SeasonFilterProps {
 export interface OptionProps {
     title: string;
     value: string;
+}
+
+export interface HomeProps {
+    searchParams: FootballFilterProps;
 }
