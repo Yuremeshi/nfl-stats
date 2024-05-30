@@ -42,7 +42,7 @@ const SearchBar = () => {
         updateSearchParams(search.toLowerCase(), team.value.toLowerCase(), season.toLowerCase())
     };
 
-    const updateSearchParams = (search: string, team: string, season: string) => {
+    const updateSearchParams = async (search: string, team: string, season: string) => {
         const searchParams = new URLSearchParams(window.location.search);
 
         if (search) {
@@ -67,14 +67,26 @@ const SearchBar = () => {
 
         router.push(newPathname, {scroll: false})
 
-        const players = getFootballPlayers({
-            search: search,
-            team: team,
-            season: season,
-        })
-        
-        console.log(players);
+        try {
+            const players = await getFootballPlayers({
+                search: search,
+                team: team,
+                season: season,
+            });
+
+            console.log(players);
+
+            // For example, you can update the UI with the fetched data
+            // updateUIWithPlayers(players);
+        } catch (error) {
+            console.error("Error fetching players:", error);
+        }
     }
+
+    // function updateUIWithPlayers(players) {
+    //     // Implement your logic to update the UI with the players data
+    //     console.log("Updating UI with players:", players);
+    // }
 
     return (
         <form className="flex w-full items-center justify-center relative gap-4" onSubmit={handleSearch}>

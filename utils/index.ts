@@ -1,26 +1,39 @@
-import { FootballFilterProps } from "@/types";
-
+import { FootballFilterProps, Params } from "@/types";
 const axios = require('axios');
 
-const apiKey = process.env.API_KEY
+const apiKey = process.env.REACT_APP_API_KEY;
 
 export async function getFootballPlayers(filters: FootballFilterProps) {
     const { team, season, search } = filters;
 
     const options = {
-    method: 'GET',
-    url: `{https://api-american-football.p.rapidapi.com/players?team=${team}&season=${season}&search=${search}}`,
-    headers: {
-        'X-RapidAPI-Key': apiKey,
-        'X-RapidAPI-Host': 'api-american-football.p.rapidapi.com'
-    }
+        method: 'GET',
+        url: "https://api-american-football.p.rapidapi.com/players",
+        params: (() => {
+            const params: Params = {};
+            if ( team !== "" && season !== "" && search !== "" ) {
+                params.team = team;
+                params.season = season;
+                params.search = search;
+            } else if ( team == "" && season == "" && search !== "" ) {
+                params.search = search;
+            } else if ( team !== "" && season !== "" && search == "" ) {
+                params.team = team;
+                params.season = season;
+            }
+            return params;
+        })(),
+        headers: {
+            'X-RapidAPI-Key': apiKey,
+            'X-RapidAPI-Host': 'api-american-football.p.rapidapi.com'
+        }
     };
 
     try {
         const response = await axios.request(options);
-        console.log(response.data);
-        const result = await response.json();
-        return result;
+        const data = await response.data;
+
+        return data;
     } catch (error) {
         console.error(error);
     }

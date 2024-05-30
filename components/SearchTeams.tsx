@@ -8,7 +8,6 @@ import { timeStamp } from "console";
 
 const SearchTeams = ({ team, setTeam }: SearchTeamProps) => {
     const [query, setQuery] = useState("");
-    const [selected, setSelected] = useState("");
 
     const filteredTeams = query === "" ? teams : teams.filter((item) => (
         item.title.toLowerCase().includes(query.toLowerCase())
@@ -16,7 +15,7 @@ const SearchTeams = ({ team, setTeam }: SearchTeamProps) => {
 
     return (
         <div className="flex-1 max-sm:w-full flex justify-start items-center">
-            <Combobox value={team.value} onChange={(team) => setTeam(team)} immediate={true}>
+            <Combobox value={team} onChange={setTeam} immediate={true}>
                 <div className="relative w-full">
                     <ComboboxInput
                         placeholder="NFL Team"

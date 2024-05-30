@@ -1,7 +1,7 @@
 export interface FootballFilterProps {
-    team: string,
-    season: string,
-    search: string,
+    team?: string,
+    season?: string,
+    search?: string,
 }
 
 export interface SearchTeamProps {
@@ -27,4 +27,10 @@ export interface OptionProps {
 
 export interface HomeProps {
     searchParams: FootballFilterProps;
+}
+
+export interface Params {
+    team?: string;
+    season?: string;
+    search?: string;
 }
