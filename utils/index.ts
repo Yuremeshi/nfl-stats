@@ -1,7 +1,7 @@
 import { FootballFilterProps, Params } from "@/types";
 const axios = require('axios');
 
-const apiKey = process.env.REACT_APP_API_KEY;
+const apiKey = process.env.NEXT_PUBLIC_API_KEY;
 
 export async function getFootballPlayers(filters: FootballFilterProps) {
     const { team, season, search } = filters;
