@@ -26,6 +26,7 @@ const SearchBar = () => {
         title: "",
     });
     const [season, setSeason] = useState("");
+    const [searchlist, setSearchlist] = useState([]);
     const router = useRouter();
 
     const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
@@ -74,7 +75,8 @@ const SearchBar = () => {
                 season: season,
             });
 
-            console.log(players);
+            setSearchlist(players);
+            console.log(searchlist);
 
             // For example, you can update the UI with the fetched data
             // updateUIWithPlayers(players);
@@ -98,6 +100,7 @@ const SearchBar = () => {
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Player Name"
                     className="text-black w-full p-1 rounded-smw-full"
+                    autoComplete="off"
                 />
             </div>
             <SearchTeams team={team} setTeam={setTeam} />

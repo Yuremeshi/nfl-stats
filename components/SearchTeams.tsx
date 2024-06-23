@@ -22,6 +22,7 @@ const SearchTeams = ({ team, setTeam }: SearchTeamProps) => {
                         displayValue={(team: { title: string, value: string }) => team?.title || ""}
                         onChange={(e) => setQuery(e.target.value)}
                         className="text-black w-full p-1 rounded-sm"
+                        autoComplete="off"
                     />
 
                     <Transition
