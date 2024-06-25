@@ -43,7 +43,7 @@ const SearchBar = ({ search, setSearch, team, setTeam, season, setSeason, update
     // }
 
     return (
-        <form className="flex w-full items-center justify-center relative gap-4" onSubmit={handleSearch}>
+        <form className="flex w-full items-center justify-center relative gap-4 flex-col sm:flex-row" onSubmit={handleSearch}>
             <div>
                 <input 
                     type="text"
@@ -55,9 +55,13 @@ const SearchBar = ({ search, setSearch, team, setTeam, season, setSeason, update
                     autoComplete="off"
                 />
             </div>
-            <SearchTeams team={team} setTeam={setTeam} />
-            <SeasonFilter season={season} setSeason={setSeason} />
-            <SearchButton otherClasses="" />
+            <div className="z-20">
+                <SearchTeams team={team} setTeam={setTeam} />
+            </div>
+            <div className="flex flex-row gap-2">
+                <SeasonFilter season={season} setSeason={setSeason} />
+                <SearchButton otherClasses="" />
+            </div>
         </form>
     )
 }

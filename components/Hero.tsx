@@ -60,8 +60,8 @@ const Hero = () => {
   }, [searchlist]);
 
   return (
-    <div className="w-full">
-      <div className="flex flex-col px-4 sm:px-8 md:px-16 relative">
+    <div className="w-full flex flex-col items-center">
+      <div className="flex flex-col px-4 items-center sm:px-8 md:px-16 relative max-w-[700px]">
         <div>        
           <h1 className="text-4xl">
               Search for Stats
@@ -78,7 +78,7 @@ const Hero = () => {
         />
       </div>
       <div className="w-full">
-          <SearchResults />
+          <SearchResults searchlist={searchlist} />
       </div>
     </div>
   )

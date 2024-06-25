@@ -47,3 +47,26 @@ export interface SearchBarProps {
     setSeason: React.Dispatch<React.SetStateAction<string>>;
     updateSearchParams: (search: string, team: string, season: string) => Promise<void>;
 }
+
+export interface Player {
+    age: number;
+    college: string;
+    experience: number;
+    group: string;
+    height: string;
+    id: number;
+    image: string;
+    name: string;
+    number: number;
+    position: string;
+    salary: string;
+    weight: string;
+}
+
+export interface PlayerCardProps {
+    player: Player;
+}
+
+export interface SearchResultsProps {
+    searchlist: Player[];
+}

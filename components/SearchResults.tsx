@@ -1,8 +1,14 @@
 import React from 'react'
+import { SearchResultsProps } from '@/types'
+import PlayerCard from './PlayerCard'
 
-const SearchResults = () => {
+const SearchResults = ({ searchlist }: SearchResultsProps) => {
   return (
-    <div>SearchResults</div>
+    <div className="flex flex-col">
+      {searchlist?.map((player) => (
+        <PlayerCard player={player} />
+      ))}
+    </div>
   )
 }
 
