@@ -60,8 +60,8 @@ const Hero = () => {
   }, [searchlist]);
 
   return (
-    <div className="w-full flex flex-col items-center">
-      <div className="flex flex-col px-4 items-center sm:px-8 md:px-16 relative max-w-[700px]">
+    <div className="w-full flex flex-col items-center gap-4">
+      <div className="flex flex-col px-4 items-center sm:px-8 md:px-16 relative max-w-[700px] gap-2">
         <div>        
           <h1 className="text-4xl">
               Search for Stats

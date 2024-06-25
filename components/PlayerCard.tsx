@@ -6,8 +6,8 @@ const PlayerCard = ({ player }: PlayerCardProps) => {
 
     return (
         <div>
-            <div>
-            {number} {name} {position} {height}
+            <div className="border-2 border-white p-3">
+                {number} {name} {position} {height}
             </div>
         </div>
     )
