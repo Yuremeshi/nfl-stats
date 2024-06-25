@@ -34,3 +34,16 @@ export interface Params {
     season?: string;
     search?: string;
 }
+
+export interface SearchBarProps {
+    search: string;
+    setSearch: React.Dispatch<React.SetStateAction<string>>;
+    team: {
+        value: string,
+        title: string,
+    };
+    setTeam: React.Dispatch<React.SetStateAction<{value: string, title: string,}>>;
+    season: string;
+    setSeason: React.Dispatch<React.SetStateAction<string>>;
+    updateSearchParams: (search: string, team: string, season: string) => Promise<void>;
+}
