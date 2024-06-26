@@ -77,8 +77,8 @@ const Hero = () => {
           updateSearchParams={updateSearchParams}
         />
       </div>
-      <div className="w-full">
-          <SearchResults searchlist={searchlist} />
+      <div className="w-96">
+          <SearchResults searchlist={searchlist} season={season} team={team} />
       </div>
     </div>
   )
