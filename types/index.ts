@@ -69,6 +69,10 @@ export interface Player {
     weight: string,
 }
 
+export interface PlayerStatistics {
+    
+}
+
 export interface PlayerCardProps {
     player: Player,
     season: string,
@@ -78,10 +82,38 @@ export interface PlayerCardProps {
     },
 }
 
+interface Statistic {
+    name: string,
+    value: string | number | null,
+}
+
+interface Group {
+    name: string,
+    statistics: Statistic[],
+}
+
+interface Team {
+    groups: Group[];
+}
+
+interface PlayerStat {
+    id: number,
+    name: string,
+    image: string,
+    number: string,
+    position: string,
+}
+
+export interface StatsProps {
+    player: PlayerStat,
+    teams: Team[],
+}
+
 export interface PlayerDetailsProps {
     isOpen: boolean,
     closeModal: () => void;
     player: Player,
+    stats: StatsProps[],
 }
 
 export interface SearchResultsProps {

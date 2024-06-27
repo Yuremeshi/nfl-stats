@@ -1,6 +1,6 @@
 "use client";
 
-import { PlayerCardProps } from '@/types'
+import { PlayerCardProps, StatsProps } from '@/types'
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react'
 import PlayerDetails from './PlayerDetails';
@@ -40,7 +40,7 @@ const PlayerCard = ({ player, season, team }: PlayerCardProps) => {
                 {number} {name} {position}
             </div>
 
-            <PlayerDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} player={player} />
+            <PlayerDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} player={player} stats={playerStats} />
         </div>
     )
 }
