@@ -78,7 +78,7 @@ const Hero = () => {
         />
       </div>
       <div className="w-96">
-          <SearchResults searchlist={searchlist} season={season} team={team} />
+          <SearchResults searchlist={searchlist} season={season} setSeason={setSeason} team={team} />
       </div>
     </div>
   )

@@ -6,7 +6,7 @@ import React, { useState, useEffect } from 'react'
 import PlayerDetails from './PlayerDetails';
 import { getPlayerStats } from '@/utils';
 
-const PlayerCard = ({ player, season, team }: PlayerCardProps) => {
+const PlayerCard = ({ player, season, setSeason, team }: PlayerCardProps) => {
     const { id, name, number, position, height, image } = player;
 
     const [isOpen, setIsOpen] = useState(false);

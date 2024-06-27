@@ -75,3 +75,7 @@ export async function getPlayerStats(filters: PlayerIdProps) {
         console.error(error);
     }
 }
+
+//ESPN API https://site.web.api.espn.com/apis/common/v3/sports/football/nfl/athletes/3139477/stats?region=us&lang=en&contentorigin=espn
+// 3139477 is the id for the athlete.
+// How do I make the API call...?

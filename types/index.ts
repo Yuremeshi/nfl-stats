@@ -76,6 +76,7 @@ export interface PlayerStatistics {
 export interface PlayerCardProps {
     player: Player,
     season: string,
+    setSeason: React.Dispatch<React.SetStateAction<string>>;
     team: {
         value: string,
         title: string,
@@ -119,6 +120,7 @@ export interface PlayerDetailsProps {
 export interface SearchResultsProps {
     searchlist: Player[],
     season: string,
+    setSeason: React.Dispatch<React.SetStateAction<string>>;
     team: {
         value: string,
         title: string,
