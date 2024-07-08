@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Fragment } from 'react';
 import { Dialog, DialogPanel, Transition, TransitionChild } from '@headlessui/react';
 
-const PlayerDetails = ({ isOpen, closeModal, player, stats }: PlayerDetailsProps) => {
+const PlayerDetails = ({ isOpen, closeModal, player, categories }: PlayerDetailsProps) => {
   return (
     <>
         <Transition appear show={isOpen} as={Fragment}>
@@ -42,7 +42,7 @@ const PlayerDetails = ({ isOpen, closeModal, player, stats }: PlayerDetailsProps
                                         {player.number} {player.name}
                                    </div>
                                     <div>
-                                        {stats.map((stat, statIndex) => (
+                                        {/* {stats.map((stat, statIndex) => (
                                             <div key={statIndex}>
                                             {stat.teams.map((team, teamIndex) => (
                                                 <div key={teamIndex} className="flex gap-10">
@@ -61,7 +61,27 @@ const PlayerDetails = ({ isOpen, closeModal, player, stats }: PlayerDetailsProps
                                                 </div>
                                             ))}
                                             </div>
-                                        ))}
+                                        ))} */}
+                                        {categories && categories.length > 0 ? (
+                                            categories.map((category, categoryIndex) => (
+                                                <div key={categoryIndex}>
+                                                    <h2>{category.displayName}</h2>
+                                                    {category.statistics.map((statistic, statisticsIndex) => (
+                                                        <div key={statisticsIndex}>
+                                                            <ul>
+                                                                {statistic.stats.map((stat, statIndex) => (
+                                                                    <li key={statIndex}>
+                                                                        {stat}
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                             ))
+                                            ) : (
+                                            <p>No categories available</p>
+                                        )}
                                     </div>
                                 </div>
                             </DialogPanel>

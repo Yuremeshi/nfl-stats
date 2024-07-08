@@ -1,10 +1,10 @@
 "use client";
 
-import { PlayerCardProps, StatsProps } from '@/types'
+import { PlayerCardProps } from '@/types'
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react'
 import PlayerDetails from './PlayerDetails';
-import { getPlayerStats } from '@/utils';
+import { fetchESPNStats, getPlayerStats } from '@/utils';
 
 const PlayerCard = ({ player, season, setSeason, team }: PlayerCardProps) => {
     const { id, name, number, position, height, image } = player;
@@ -15,13 +15,11 @@ const PlayerCard = ({ player, season, setSeason, team }: PlayerCardProps) => {
 
     const handleClick = async (id: string,  season: string, team: string) => {
         try {
-            const statistics = await getPlayerStats({
-                id: id,
-                team: team,
-                season: season,
+            const statistics = await fetchESPNStats({
+                id: "3139477",
             })
 
-            setPlayerStats(statistics.response);
+            setPlayerStats(statistics);
         } catch (error) {
             console.error("Error fetching stats", error);
         }
@@ -40,7 +38,7 @@ const PlayerCard = ({ player, season, setSeason, team }: PlayerCardProps) => {
                 {number} {name} {position}
             </div>
 
-            <PlayerDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} player={player} stats={playerStats} />
+            <PlayerDetails isOpen={isOpen} closeModal={() => setIsOpen(false)} player={player} categories={playerStats} />
         </div>
     )
 }

@@ -83,38 +83,61 @@ export interface PlayerCardProps {
     },
 }
 
-interface Statistic {
-    name: string,
-    value: string | number | null,
-}
+// interface Statistic {
+//     name: string,
+//     value: string | number | null,
+// }
 
-interface Group {
-    name: string,
-    statistics: Statistic[],
-}
+// interface Group {
+//     name: string,
+//     statistics: Statistic[],
+// }
 
-interface Team {
-    groups: Group[];
-}
+// interface Team {
+//     groups: Group[];
+// }
 
-interface PlayerStat {
-    id: number,
-    name: string,
-    image: string,
-    number: string,
+// interface PlayerStat {
+//     id: number,
+//     name: string,
+//     image: string,
+//     number: string,
+//     position: string,
+// }
+
+// export interface StatsProps {
+//     player: PlayerStat,
+//     teams: Team[],
+// }
+
+type Statistic = {
     position: string,
+    season: {
+        displayName: string,
+        year: number,
+    },
+    stats: string[],
+    teamId: string,
+    teamSlug: string,
 }
 
-export interface StatsProps {
-    player: PlayerStat,
-    teams: Team[],
+export type CategoriesProps = {
+    descriptions: string[],
+    displayName: string,
+    displayNames: string[],
+    labels: string[],
+    name: string,
+    names: string[],
+    sortKey: string,
+    statistics: Statistic[],
+    totals: string[],
 }
 
 export interface PlayerDetailsProps {
     isOpen: boolean,
     closeModal: () => void;
     player: Player,
-    stats: StatsProps[],
+    categories: CategoriesProps[],
 }
 
 export interface SearchResultsProps {
@@ -131,4 +154,8 @@ export interface PlayerIdProps {
     id: string,
     team?: string,
     season: string,
+}
+
+export interface ESPNFiltersProps {
+    id: string,
 }

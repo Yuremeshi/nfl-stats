@@ -1,4 +1,4 @@
-import { FootballFilterProps, Params, PlayerIdProps, StatParams } from "@/types";
+import { FootballFilterProps, Params, PlayerIdProps, StatParams, ESPNFiltersProps } from "@/types";
 const axios = require('axios');
 
 const apiKey = process.env.NEXT_PUBLIC_API_KEY;
@@ -79,3 +79,13 @@ export async function getPlayerStats(filters: PlayerIdProps) {
 //ESPN API https://site.web.api.espn.com/apis/common/v3/sports/football/nfl/athletes/3139477/stats?region=us&lang=en&contentorigin=espn
 // 3139477 is the id for the athlete.
 // How do I make the API call...?
+
+export async function fetchESPNStats(ESPNFilters: ESPNFiltersProps) {
+    const { id } = ESPNFilters
+
+    const response = await fetch(`https://site.web.api.espn.com/apis/common/v3/sports/football/nfl/athletes/${id}/stats?region=us&lang=en&contentorigin=espn`)
+
+    const result = await response.json();
+    
+    return result;
+}
