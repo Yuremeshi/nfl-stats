@@ -19,15 +19,12 @@ const PlayerCard = ({ player, season, setSeason, team }: PlayerCardProps) => {
                 id: "3139477",
             })
 
-            setPlayerStats(statistics);
+            console.log('stats', statistics)
+            setPlayerStats(statistics['categories']);
         } catch (error) {
             console.error("Error fetching stats", error);
         }
     }
-
-    useEffect(() => {
-        console.log(playerStats);
-    }, [playerStats]);
 
     return (
         <div>
