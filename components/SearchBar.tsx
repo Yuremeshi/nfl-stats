@@ -24,23 +24,18 @@ const SearchBar = ({ search, setSearch, team, setTeam, season, setSeason, update
     const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (team.value != "" && season === "") {
+        const teamValue = team?.value || "";
+
+        if (teamValue != "" && season === "") {
             return alert("Please fill in season")
-        } else if (team.value === "" && season != "") {
+        } else if (teamValue === "" && season != "") {
             return alert("Please fill in team")
-        } else if (search === "" && team.value === "" && season === "") {
+        } else if (search === "" && teamValue === "" && season === "") {
             return alert("Please fill in a name and/or team and season")
         }
-
-        updateSearchParams(search.toLowerCase(), team.value.toLowerCase(), season.toLowerCase())
+        
+        updateSearchParams(search.toLowerCase(), teamValue.toLowerCase(), season.toLowerCase())
     };
-
-    
-
-    // function updateUIWithPlayers(players) {
-    //     // Implement your logic to update the UI with the players data
-    //     console.log("Updating UI with players:", players);
-    // }
 
     return (
         <form className="flex w-full items-center justify-center relative gap-4 flex-col sm:flex-row" onSubmit={handleSearch}>
@@ -55,12 +50,12 @@ const SearchBar = ({ search, setSearch, team, setTeam, season, setSeason, update
                     autoComplete="off"
                 />
             </div>
-            <div className="z-20">
+            <div className="z-20 md:w-52">
                 <SearchTeams team={team} setTeam={setTeam} />
             </div>
             <div className="flex flex-row gap-2">
                 <SeasonFilter season={season} setSeason={setSeason} />
-                <SearchButton otherClasses="" />
+                <SearchButton otherClasses="ml-1" />
             </div>
         </form>
     )

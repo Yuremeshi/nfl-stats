@@ -1,3 +1,5 @@
+import { ColumnDef } from "@tanstack/react-table";
+
 export interface FootballFilterProps {
     team?: string,
     season?: string,
@@ -83,6 +85,7 @@ export interface PlayerCardProps {
     },
 }
 
+// Types for RapidAPI API I used that was incomplete
 // interface Statistic {
 //     name: string,
 //     value: string | number | null,
@@ -132,6 +135,8 @@ export type CategoriesProps = {
     statistics: Statistic[],
     totals: string[],
 }
+
+// export const headerDefinition: ColumnDef<CategoriesProps["labels"]>[] = [];
 
 export interface PlayerDetailsProps {
     isOpen: boolean,

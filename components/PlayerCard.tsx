@@ -28,7 +28,7 @@ const PlayerCard = ({ player, season, setSeason, team }: PlayerCardProps) => {
 
     return (
         <div>
-            <div className="border-2 border-white p-3 cursor-pointer" onClick={() => {
+            <div className="border-2 border-gray-400 p-3 cursor-pointer mb-2 rounded-md" onClick={() => {
                 handleClick(id, season, team.value);
                 setIsOpen(true);
                 }}>

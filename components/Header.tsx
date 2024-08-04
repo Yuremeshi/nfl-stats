@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className="w-full z-10 sticky top-0 left-0 right-0 bg-slate-900">
         <nav className="flex justify-between items-center mx-6 py-4 rounded-md">
-            <Link href="/" className="flex justify-center items-center">
+            <Link href="/" className="flex justify-center items-center hover:opacity-70">
                 <Image 
                     src="https://static.www.nfl.com/image/upload/v1554321393/league/nvfr7ogywskqrfaiu38m.svg"
                     alt="NFL logo"
@@ -20,7 +20,7 @@ const Header = () => {
                 </p>
             </Link>
             <Menu as="div" className="relative inline-block text-left">
-                <MenuButton className="text-2xl text-white font-serif">Leagues</MenuButton>
+                <MenuButton className="text-2xl text-white font-serif hover:opacity-70">Leagues</MenuButton>
                 <Transition
                     enter="transition ease-out duration-100"
                     enterFrom="opacity-0 scale-95"

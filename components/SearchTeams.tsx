@@ -20,7 +20,16 @@ const SearchTeams = ({ team, setTeam }: SearchTeamProps) => {
                     <ComboboxInput
                         placeholder="NFL Team"
                         displayValue={(team: { title: string, value: string }) => team?.title || ""}
-                        onChange={(e) => setQuery(e.target.value)}
+                        onChange={(e) => {
+                            const value = e.target.value;
+                            setQuery(value);
+                            if (value === "") {
+                                setTeam({
+                                    value: "",
+                                    title: "",
+                                });
+                            }
+                        }}
                         className="text-black w-full p-1 rounded-sm"
                         autoComplete="off"
                     />
