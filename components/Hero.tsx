@@ -87,7 +87,7 @@ const Hero = () => {
         </div>
         <img src="./mahomes2.png" alt="Mahomes" />
       </div>
-      <div className="flex flex-col pt-8 px-4 items-center sm:px-8 md:px-16 relative max-w-[700px] gap-2">
+      <div className="flex flex-col pt-8 px-4 items-center sm:px-8 md:px-16 relative max-w-[800px] gap-2">
         <div>        
           <h1 className="text-4xl font-serif">
               Search for your next Gamebreaker

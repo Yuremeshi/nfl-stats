@@ -39,18 +39,18 @@ const SearchBar = ({ search, setSearch, team, setTeam, season, setSeason, update
 
     return (
         <form className="flex w-full items-center justify-center relative gap-4 flex-col sm:flex-row" onSubmit={handleSearch}>
-            <div>
+            <div className="sm:w-56">
                 <input 
                     type="text"
                     name="player"
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder="Player Name"
-                    className="text-black w-full p-1 rounded-smw-full"
+                    className="text-black w-full p-1 rounded-sm"
                     autoComplete="off"
                 />
             </div>
-            <div className="z-20 md:w-52">
+            <div className="z-20 sm:w-56">
                 <SearchTeams team={team} setTeam={setTeam} />
             </div>
             <div className="flex flex-row gap-2">
